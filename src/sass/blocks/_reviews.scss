@@ -1,0 +1,53 @@
+.reviews {
+    padding-bottom: 71px;
+
+    &__wrapper {
+        margin-top: 70px;
+    }
+
+    &__client {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__img {
+        width: 169px;
+        height: 169px;
+    }
+
+    &__content {
+        margin-left: 60px;
+    }
+
+    &__client-name {
+        font-size: 18px;
+        font-weight: 700;
+        text-align: left;
+        color: $color-black;
+        line-height: 18px;
+    }
+
+    &__client-subtitle {
+        margin-top: 10px;
+        font-size: 14px;
+        font-weight: 300;
+        text-align: left;
+        color: #646464;
+        line-height: 14px;
+    }
+
+    &__client-text {
+        margin-top: 20px;
+        font-size: 16px;
+        font-weight: 300;
+        text-align: left;
+        color: $color-black;
+    }
+
+    hr {
+        background-color: #f6f6f6;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        border-bottom: none;
+    }
+}

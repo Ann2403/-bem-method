@@ -1,10 +1,28 @@
-@media (max-width: 1200px) {}
+@media (max-width: 1200px) {
+    .slider {
+        .next {
+            right: 50px;
+        }
+
+        .prev {
+            left: 50px;
+        }
+    }
+}
 
 @media (max-width: 991px) {
     .advantages {
         &__wrapper {
             width: 100%;
         }
+    }
+
+    .catalog__content {
+        justify-content: center;
+    }
+
+    .catalog-item {
+        margin: 0 7px 20px 7px;
     }
 }
 
@@ -47,6 +65,18 @@
             span {
                 font-size: 15px;
             }
+        }
+    }
+
+    .slider {
+        padding: 81px 7% 82px 7%;
+    }
+
+    .slider_inner {
+        width: 100%;
+
+        img {
+            width: 60%;
         }
     }
 }
@@ -93,8 +123,56 @@
 
     .consultation {
         padding: 50px 0 40px 0;
+
         &__descr {
             font-size: 15px;
+            margin-top: 20px;
+        }
+    }
+
+    .slider {
+        display: none;
+    }
+
+    .catalog {
+        margin-top: 20px;
+
+        &__tab {
+            width: auto;
+            font-size: 14px;
+            line-height: 23px;
+        }
+
+        &-item {
+            &__price {
+                font-size: 17px;
+            }
+        }
+    }
+
+    .reviews {
+        &__img {
+            display: none;
+        }
+
+        &__content {
+            margin-left: 0;
+        }
+
+        &__client-text {
+            text-align: justify;
+        }
+    }
+
+    .footer {
+        &__info {
+            width: 100%;
+            height: 200px;
+            top: auto;
+            padding: 10px 0;
+        }
+
+        &__phone {
             margin-top: 20px;
         }
     }
