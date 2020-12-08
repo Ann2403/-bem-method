@@ -10,7 +10,7 @@ $(document).ready(function () {
             {
                 breakpoint: 992,
                 settings: {
-                    arrows: false, 
+                    arrows: false,
                     dots: true,
                     dotsClass: 'dots',
                     variableWidth: true
@@ -30,8 +30,8 @@ $(document).ready(function () {
     });
 
     function toggleSlide(item) {
-        $(item).each(function(i) {
-            $(this).on('click', function(e) {
+        $(item).each(function (i) {
+            $(this).on('click', function (e) {
                 e.preventDefault();
                 $('.catalog-item__content').eq(i).toggleClass('catalog-item__content_active');
                 $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
@@ -41,6 +41,24 @@ $(document).ready(function () {
 
     toggleSlide('.catalog-item__list');
     toggleSlide('.catalog-item__back');
+
+    /************************************************************
+                        МОДАЛЬНЫЕ ОКНА
+    ************************************************************/
+    $("[data-modal=consultation]").on('click', function () {
+        $('.overlay, #consultation').fadeIn('slow');
+    });
+
+    $('.modal__close').on('click', function () {
+        $('.overlay, #order, #thanks, #consultation').fadeOut('slow');
+    });
+
+    $(".button_mini").each(function (i) {
+        $(this).on('click', function() {
+            $('#order .modal__descr').text($('.catalog-item__subtitle').eq(i).text());
+            $('.overlay, #order').fadeIn('slow');
+        });
+    });
 });
 
 /*const slider = tns({

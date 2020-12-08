@@ -176,4 +176,15 @@
             margin-top: 20px;
         }
     }
+
+    .modal {
+        width: 300px;
+        padding: 40px 10px;
+
+        &__close {
+            top: 5px;
+            right: 10px;
+            font-size: 30px;
+        }
+    }
 }
