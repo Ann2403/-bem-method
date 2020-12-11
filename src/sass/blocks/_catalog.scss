@@ -47,6 +47,7 @@
         display: none;
         justify-content: space-between;
         flex-wrap: wrap;
+
         &_active {
             display: flex;
         }
@@ -148,9 +149,13 @@
             transform: translateX(0%);
             padding-right: 20px;
             transition: 0.5s all;
-            padding-left: 19px;
-            margin-bottom: 0;
-            list-style-type: none;
+
+
+            ul {
+                padding-left: 19px;
+                margin-bottom: 0;
+                list-style-type: none;
+            }
 
             &_active {
                 transform: translateX(-100%);
@@ -188,6 +193,7 @@
             text-decoration: underline;
             text-transform: uppercase;
             color: $color-red;
+
             &:hover {
                 color: $color-red;
             }

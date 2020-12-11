@@ -30,8 +30,9 @@ $(document).ready(function () {
     });
 
     function toggleSlide(item) {
-        $(item).each(function (i) {
-            $(this).on('click', function (e) {
+        $(item).each(function(i) {
+            $(this).on('click', function(e) {
+                console.log(e);
                 e.preventDefault();
                 $('.catalog-item__content').eq(i).toggleClass('catalog-item__content_active');
                 $('.catalog-item__list').eq(i).toggleClass('catalog-item__list_active');
@@ -39,7 +40,7 @@ $(document).ready(function () {
         });
     }
 
-    toggleSlide('.catalog-item__list');
+    toggleSlide('.catalog-item__link');
     toggleSlide('.catalog-item__back');
 
     /************************************************************
@@ -77,8 +78,8 @@ $(document).ready(function () {
                 name: "Пожалуйста введите свое имя",
                 phone: "Пожалуйста введите свой номер телефона",
                 email: {
-                  required: "Пожалуйста введите свою почту",
-                  email: "Неправильно введен адрес почты"
+                    required: "Пожалуйста введите свою почту",
+                    email: "Неправильно введен адрес почты"
                 }
             }
         });
@@ -91,8 +92,44 @@ $(document).ready(function () {
     /************************************************************
                             МАСКА ДЛЯ ФОРМ
     ************************************************************/
-   $("input[name=phone]").mask("+3 (80) 999-999-999");
+    $("input[name=phone]").mask("+3 (80) 999-999-999");
 
+    /************************************************************
+                     ОТПРАВКА ФОРМЫ НА ПОЧТУ
+     ************************************************************/
+    $('form').submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "mailer/smart.php",
+            data: $(this).serialize()
+        }).done(function () {
+            $(this).find("input").val("");
+            $('#consultation, #order').fadeOut();
+            $('.overlay, #thanks').fadeIn('slow');
+            $('form').trigger('reset');
+        });
+        return false;
+    });
+
+    /************************************************************
+                        ПЕРЕХОД ВВЕРХ СТРАНИЦЫ
+     ************************************************************/
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 1600) {
+            $('.pageup').fadeIn();
+        } else {
+            $('.pageup').fadeOut();
+        }
+    });
+
+    $("a[href^='#up']").click(function () {
+        const _href = $(this).attr("href");
+        $("html, body").animate({ scrollTop: $(_href).offset().top + "px" });
+        return false;
+    });
+
+    new WOW().init();
 });
 
 /*const slider = tns({

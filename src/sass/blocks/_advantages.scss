@@ -17,11 +17,13 @@
         font-size: 14px;
         font-weight: 300;
         text-align: center;
+
         img {
             display: block;
             margin: 0 auto;
             margin-bottom: 38px;
         }
+
         span {
             color: $color_red;
             text-decoration: underline;
@@ -34,5 +36,16 @@
         font-weight: 700;
         text-align: center;
         margin-bottom: 26px;
+    }
+
+    &_animated {
+        animation-name: heartbeat;
+        animation-duration: 1.5s;
+        animation-timing-function: ease;
+        animation-iteration-count: infinite;
+
+        &:hover {
+            animation-play-state: paused;
+        }
     }
 }
